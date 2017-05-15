@@ -11,6 +11,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'tell-k/vim-autopep8'
@@ -62,6 +63,13 @@ set backupskip=/tmp/*,/private/tmp/*
 set writebackup
 " autocmd FocusLost * :wa
 
+""""""""""
+" Leader
+""""""""""
+let mapleader="\\"
+
+set guicursor+=i:blinkwait0
+
 """"""""""""
 " golang
 """"""""""""
@@ -97,7 +105,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-
 """"""""""""
 " python
 """"""""""""
@@ -109,9 +116,7 @@ au FileType python set tabstop=4
     \ | set autoindent
     \ | set fileformat=unix
 
-
 let g:autopep8_max_line_length=119
-
 let g:syntastic_python_checkers=['flake8']
 
 """""""""""""
@@ -120,7 +125,6 @@ let g:syntastic_python_checkers=['flake8']
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'go']
-
 " Turn off Matching paren highlighting because its annoying.
 let loaded_matchparen = 0
 
@@ -162,65 +166,19 @@ nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 
 
-""""""""""
-" Leader
-""""""""""
-let mapleader="\\"
-if exists('$TMUX')
-	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-set guicursor+=i:blinkwait0
-
 """"""""""""
 " Nerdtree
 """"""""""""
+noremap <Leader><Tab> :NERDTreeToggle<CR>
 let NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeMouseMode=2
 let NERDTreeIgnore = ['^\.git$', 'node_modules', "\.pyc$", ".DS_Store"]
 let NERDTreeShowHidden=1
 
-""""""""""""""""
-" indent-guides
-""""""""""""""""
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-
-"""""""""""
-" undotree
-"""""""""""
-if has('persistent_undo')
-	set undofile                  " Save undo history to file
-	set undodir=~/.vim/tmp/undo/  " undo files in folder
-	set undolevels=100000         " Maximum number of undos
-	set undoreload=100000         " Save complete files for undo on reload if it has less lines than this
-endif
-
-noremap <silent> <Leader>j :UndotreeToggle<cr>
-
-""""""""""
-" deoplete
-""""""""""
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#complete_method = 'omnifunc'
-
 """""""
 " json
 """""""
 let g:vim_json_syntax_conceal = 0
-
-"""""""""
-" grepper
-"""""""""
-nnoremap <leader>g :Grepper!<cr>
-let g:grepper = {}
-let g:grepper.tools = ['pt', 'grep', 'git', 'ag']
-let g:grepper.next_tool = '<leader>g'
 
 """""""""
 " airline
