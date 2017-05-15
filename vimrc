@@ -9,7 +9,6 @@ endif
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
 
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -22,15 +21,6 @@ Plug 'ingydotnet/yaml-vim'
 Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'elzr/vim-json'
-
-"""""""""
-" theming
-"""""""""
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'guns/xterm-color-table.vim'
-Plug 'apriendeau/pencil'
-Plug 'apriendeau/vim-colorline'
-
 
 " Required:
 call plug#end()
@@ -55,11 +45,6 @@ let g:autoclose_on = 0
 """"""""""""""""
 " Theme Settings
 """"""""""""""""
-let g:airline_theme='colorline'
-let g:airline_powerline_fonts = 1
-set colorcolumn=120
-syntax on
-color pencil
 set number
 set relativenumber
 set splitright
