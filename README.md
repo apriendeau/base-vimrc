@@ -2,6 +2,7 @@
 
 A basic vimrc for teaching with some base plugins for python and go.
 
+https://github.com/junegunn/vim-plug
 
 ## Requires vim-plug
 ```
@@ -11,7 +12,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 
 [themes](http://vimcolors.com/)
+
 [airline-themes](https://github.com/vim-airline/vim-airline/wiki/Screenshots)
+`let g:airline_theme='colorline'`
 
 ## Modes
 
@@ -31,6 +34,6 @@ Every command is ran with `:` or the colon in normal mode.
 3. exit: `x`
 4. force: `!` Ex (quit without saving): `:q!`
 5. Search: `/`
-6. Search and Replace: `%s/{regex}/{replacement}/{modifiers}`
+6. Search and Replace: `%s/{regex}/{replacement}/{modifiers}`:W
 
 
