@@ -29,6 +29,7 @@ Plug 'elzr/vim-json'
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/neocomplete.vim'
 
 " Required:
 call plug#end()
