@@ -22,6 +22,9 @@ Plug 'ingydotnet/yaml-vim'
 Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'elzr/vim-json'
+Plug 'apriendeau/pencil'
+Plug 'apriendeau/vim-colorline'
+
 
 " Required:
 call plug#end()
@@ -46,9 +49,15 @@ let g:autoclose_on = 0
 """"""""""""""""
 " Theme Settings
 """"""""""""""""
+let g:airline_theme='colorline'
+let g:airline_powerline_fonts = 1
+set colorcolumn=120
+syntax on
+color pencil
 set number
 set relativenumber
 set splitright
+
 
 """""""""""""""""
 " Temporary files
