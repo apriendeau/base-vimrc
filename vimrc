@@ -68,7 +68,7 @@ set splitright
 """"""""""
 let mapleader="\\"
 
-set guicursor+=i:blinkwait0
+set guicursor+=i:blinkwait10
 
 """"""""""""
 " python
