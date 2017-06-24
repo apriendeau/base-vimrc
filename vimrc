@@ -49,8 +49,6 @@ set laststatus=2
 set backspace=indent,eol,start
 let g:autoclose_on = 0
 
-set autowrite
-
 """"""""""""""""
 " Theme Settings
 """"""""""""""""
