@@ -1,3 +1,6 @@
 #!/bin/bash
 
-cd ~ && ln -s /root/base-vimrc/vim/* .vim/
+PWD=$(pwd)
+mkdir -p $HOME/.vim
+ln -s $PWD/vim/* $HOME/.vim
+ln -s $PWD/vimrc $HOME/.vimrc
