@@ -30,6 +30,7 @@ Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'maralla/completor.vim'
+Plug 'leafgarland/typescript-vim'
 
 
 " Required:
