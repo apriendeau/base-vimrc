@@ -2,7 +2,7 @@
 " Be iMproved
 """""""""""""
 if has('vim_starting')
-	set nocompatible " Be iMproved
+  set nocompatible " Be iMproved
 endif
 
 " Install vim-plug
@@ -13,15 +13,25 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
-Plug 'fatih/vim-go'
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
+
 Plug 'vim-scripts/nginx.vim'
 Plug 'tpope/vim-markdown'
 Plug 'ingydotnet/yaml-vim'
+
 Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'elzr/vim-json'
+
+Plug 'apriendeau/pencil'
+Plug 'apriendeau/vim-colorline'
+Plug 'jiangmiao/auto-pairs'
+Plug 'maralla/completor.vim'
+Plug 'leafgarland/typescript-vim'
+
 
 " Required:
 call plug#end()
@@ -36,88 +46,44 @@ set background=dark
 set clipboard=unnamed
 set mouse=a
 set tabstop=4
-set noexpandtab
 set shiftwidth=0
 set laststatus=2
 set backspace=indent,eol,start
 let g:autoclose_on = 0
 
-
 """"""""""""""""
 " Theme Settings
 """"""""""""""""
+let g:airline_theme='colorline'
+let g:airline_powerline_fonts = 1
+set colorcolumn=120
+syntax on
+color pencil
 set number
 set relativenumber
 set splitright
-
-"""""""""""""""""
-" Temporary files
-"""""""""""""""""
-set backup
-set backupdir=~/.backups,~/.tmp,~/tmp,/var/tmp,/tmp " where to put backup
-" where to put swap files
-set directory=~/.backups,~/.tmp,~/tmp,/var/tmp,/tmp
-"do not backup when editing files in these directories
-set backupskip=/tmp/*,/private/tmp/*
-"create backup when saving a file,for when vim crashes trying to save a file
-set writebackup
-" autocmd FocusLost * :wa
 
 """"""""""
 " Leader
 """"""""""
 let mapleader="\\"
 
-set guicursor+=i:blinkwait0
-
-""""""""""""
-" golang
-""""""""""""
-" Set link for vim-go
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
-
-"au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-
-"au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-
-au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <leader>rt <Plug>(go-run-tab)
-au FileType go nmap <Leader>rs <Plug>(go-run-split)
-au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
-
-let g:go_fmt_command = "goimports"
-
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
-" let g:go_list_type = "quickfix"
-
-let g:go_highlight_methods = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+set guicursor+=i:blinkwait10
 
 """"""""""""
 " python
 """"""""""""
 au FileType python set tabstop=4
-    \ | set softtabstop=4
-    \ | set shiftwidth=4
-    \ | set textwidth=119
-    \ | set expandtab
-    \ | set autoindent
-    \ | set fileformat=unix
+  \ | set softtabstop=4
+  \ | set shiftwidth=4
+  \ | set textwidth=119
+  \ | set expandtab
+  \ | set autoindent
+  \ | set fileformat=unix
 
 let g:autopep8_max_line_length=119
 let g:syntastic_python_checkers=['flake8']
+let g:completor_gocode_binary = "/root/gopath/go1.8.3/bin/gocode"
 
 """""""""""""
 " markdown
@@ -165,74 +131,10 @@ map <C-0> :tablast<CR>
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 
+""""""""""""""""
+" External files
+""""""""""""""""
+for f in split(glob('~/.vim/vim_*'), '\n')
+  execute 'source' f
+endfor
 
-""""""""""""
-" Nerdtree
-""""""""""""
-noremap <Leader><Tab> :NERDTreeToggle<CR>
-let NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeMouseMode=2
-let NERDTreeIgnore = ['^\.git$', 'node_modules', "\.pyc$", ".DS_Store"]
-let NERDTreeShowHidden=1
-
-"""""""
-" json
-"""""""
-let g:vim_json_syntax_conceal = 0
-
-"""""""""
-" airline
-"""""""""
-let airline#extensions#default#section_use_groupitems = 0
-
-"""""""""
-" preview
-"""""""""
-set completeopt-=preview
-
-" map files
-au BufRead,BufNewFile *.map
-	\ | setfiletype yaml
-	\ | set syntax=yaml
-
-au FileType map set tabstop=2
-	\ | set expandtab
-
-au Filetype go set tabstop=4
-
-" Vim file settings
-au BufNewFile,BufRead vim_* set filetype=vim
-
-" associate Utopiafile with json filetype syntax
-au BufNewFile,BufReadPost Utopiafile set filetype=json
-
-" Javascript
-au FileType javascript set expandtab
-	\ | set tabstop=2
-
-" Json
-au FileType json set expandtab
-	\ | set tabstop=2
-
-" HCL
-au BufRead,BufNewFile *.hcl setfiletype terraform
-
-" yaml
-au FileType yaml set shiftwidth=2|set tabstop=2
-
-"dotenv
-au BufRead,BufNewFile .env* set syntax=sh
-
-""""""""""""
-" WhiteSpace
-""""""""""""
-function! s:StripWhiteSpaces()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-
-autocmd BufWritePre * StripWhiteSpace
-command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()

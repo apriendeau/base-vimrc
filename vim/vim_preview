@@ -1,0 +1,32 @@
+"""""""""
+" preview
+"""""""""
+set completeopt-=preview
+
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+au FileType map set tabstop=2 | set expandtab
+
+au Filetype go set tabstop=4
+
+" Vim file settings
+au BufNewFile,BufRead vim_* set filetype=vim
+
+" associate Utopiafile with json filetype syntax
+au BufNewFile,BufReadPost Utopiafile set filetype=json
+
+" Javascript
+au FileType javascript set expandtab| set tabstop=2
+
+" Json
+au FileType json set expandtab | set tabstop=2
+
+" HCL
+au BufRead,BufNewFile *.hcl setfiletype terraform
+
+" yaml
+au FileType yaml set shiftwidth=2|set tabstop=2
+
+"dotenv
+au BufRead,BufNewFile .env* set syntax=sh
+
