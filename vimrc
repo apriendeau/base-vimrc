@@ -129,6 +129,15 @@ map <C-0> :tablast<CR>
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 
+"""""""""""""""""""""""
+" better mouse support
+"""""""""""""""""""""""
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
 """"""""""""""""
 " External files
 """"""""""""""""
