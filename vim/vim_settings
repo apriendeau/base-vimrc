@@ -54,8 +54,6 @@ set writebackup
 " autocmd FocusLost * :wa
 
 
-
-
 """"""""""
 " ALE
 """"""""""
