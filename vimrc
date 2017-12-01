@@ -27,10 +27,14 @@ Plug 'elzr/vim-json'
 
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
-Plug 'jiangmiao/auto-pairs'
 Plug 'maralla/completor.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
+
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Required:
 call plug#end()
@@ -81,7 +85,6 @@ au FileType python set tabstop=4
   \ | set fileformat=unix
 
 let g:autopep8_max_line_length=119
-let g:completor_gocode_binary = "/root/gopath/go1.8.3/bin/gocode"
 
 """""""""""""
 " markdown
@@ -138,6 +141,13 @@ else
     set ttymouse=xterm2
 end
 
+"""""""""""
+" UltiSnip
+"""""""""""
+
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
 """"""""""""""""
 " External files
 """"""""""""""""
