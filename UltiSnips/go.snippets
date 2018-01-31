@@ -1,0 +1,26 @@
+snippet tabletest
+func $0(t *testing.T) {
+	testcases := []struct{
+		description string
+	}{
+		{
+			description: "success case",
+		},
+	}
+
+	for i, tc := range testcases {
+		tc := tc
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T){
+			t.Parallel()
+			t.Log(tc.description)
+		})
+	}
+}
+endsnippet
+
+
+snippet clifunc
+func (c Client) $1($2) $3 {
+	return $4
+}
+endsnippet
