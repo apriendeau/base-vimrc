@@ -5,11 +5,14 @@ if has('vim_starting')
   set nocompatible " Be iMproved
 endif
 
-" Install vim-plug
+" Install vim-plug for vim
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
-
-call plug#begin('~/.vim/plugged')
+if has("nvim")
+  call plug#begin("~/.local/share/nvim/plugged")
+else
+  call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'scrooloose/nerdtree'
 
@@ -27,7 +30,6 @@ Plug 'elzr/vim-json'
 
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
-Plug 'maralla/completor.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
@@ -35,6 +37,13 @@ Plug 'w0rp/ale'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+if has("nvim")
+  Plug 'ncm2/ncm2'
+  " ncm2 requires nvim-yarp
+  Plug 'roxma/nvim-yarp'
+  Plug 'ncm2/ncm2-go'
+endif
 
 " Required:
 call plug#end()
@@ -70,9 +79,11 @@ set splitright
 " Leader
 """"""""""
 let mapleader="\\"
-
-set guicursor+=i:blinkwait10
-
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURddSOR_SHAPE = 1
+else
+  set guicursor+=i:blinkwait10
+endif
 """"""""""""
 " python
 """"""""""""
@@ -136,9 +147,7 @@ inoremap <C-t> <Esc>:tabnew<CR>
 " better mouse support
 """""""""""""""""""""""
 if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
+  set ttymouse=sgr
 end
 
 """""""""""
@@ -150,6 +159,15 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"""""""""""""""
+" ncm2 (neovim)
+"""""""""""""""
+if has("nvim")
+  " enable ncm2 for all buffers
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+  set completeopt=noinsert,menuone,noselect
+endif
 
 """"""""""""""""
 " External files

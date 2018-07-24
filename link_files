@@ -4,3 +4,4 @@ PWD=$(pwd)
 mkdir -p $HOME/.vim
 ln -s $PWD/vim/* $HOME/.vim
 ln -s $PWD/vimrc $HOME/.vimrc
+ln -s $PWD/vimrc $HOME/.config/nvim/init.vim
