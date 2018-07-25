@@ -43,6 +43,7 @@ if has("nvim")
   " ncm2 requires nvim-yarp
   Plug 'roxma/nvim-yarp'
   Plug 'ncm2/ncm2-go'
+  Plug 'ncm2/ncm2-ultisnips'
 endif
 
 " Required:
@@ -154,11 +155,19 @@ end
 " UltiSnip
 """""""""""
 
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+  let g:UltiSnipsEditSplit="vertical"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+if has("nvim")
+  inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+  let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
+  let g:UltiSnipsSnippetDirectories=["~/.config/nvim/UltiSnips", "UltiSnips"]
+else
+  "let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+  "let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
+endif
+
 
 """""""""""""""
 " ncm2 (neovim)
