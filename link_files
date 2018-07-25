@@ -1,7 +1,14 @@
 #!/bin/bash
 
 PWD=$(pwd)
+
 mkdir -p $HOME/.vim
+mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim/UltiSnips
+mkdir -p $HOME/.config/nvim/ftplugin
+
 ln -s $PWD/vim/* $HOME/.vim
 ln -s $PWD/vimrc $HOME/.vimrc
 ln -s $PWD/vimrc $HOME/.config/nvim/init.vim
+ln -s $PWD/vim/ftplugin/* $HOME/.config/nvim/ftplugin
+ln -s $PWD/UltiSnips/* $HOME/.config/nvim/UltiSnips

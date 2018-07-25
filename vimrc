@@ -164,8 +164,8 @@ if has("nvim")
   let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
   let g:UltiSnipsSnippetDirectories=["~/.config/nvim/UltiSnips", "UltiSnips"]
 else
-  "let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-  "let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
+  let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+  let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
 endif
 
 
