@@ -60,7 +60,7 @@ set writebackup
 let g:ale_fixers = ['trim_whitespace']
 let g:ale_linters = {
 \   'go': ['go vet','go build', 'goimports', 'staticcheck'],
-\   'python' ['autopep8'],
+\   'python': ['autopep8'],
 \}
 let g:ale_python_autopep8_options = '--ignore=E501,W690,W391,W293'
 let g:airline#extensions#ale#enabled = 1

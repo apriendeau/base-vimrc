@@ -17,8 +17,6 @@ endif
 Plug 'scrooloose/nerdtree'
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'tell-k/vim-autopep8'
-Plug 'nvie/vim-flake8'
 
 Plug 'vim-scripts/nginx.vim'
 Plug 'tpope/vim-markdown'
@@ -30,7 +28,6 @@ Plug 'elzr/vim-json'
 
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
-Plug 'jiangmiao/auto-pairs'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
 
