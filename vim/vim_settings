@@ -57,13 +57,20 @@ set writebackup
 """"""""""
 " ALE
 """"""""""
-let g:ale_fixers = ['trim_whitespace']
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['goimports'],
+\}
+
 let g:ale_linters = {
-\   'go': ['go vet','go build', 'goimports', 'staticcheck'],
+\   'go': ['gopls', 'go build', 'golangci-lint'],
 \   'python': ['autopep8'],
 \}
+
+let g:ale_go_golangci_lint_options = ''
 let g:ale_python_autopep8_options = '--ignore=E501,W690,W391,W293'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
-
+let g:ale_lint_on_save = 1
+let g:ale_go_golangci_lint_package = 1

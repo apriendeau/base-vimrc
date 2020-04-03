@@ -16,7 +16,7 @@ endif
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vim-scripts/nginx.vim'
 Plug 'tpope/vim-markdown'
@@ -157,7 +157,7 @@ end
   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 if has("nvim")
-  inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+  "inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
   let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
   let g:UltiSnipsSnippetDirectories=["~/.config/nvim/UltiSnips", "UltiSnips"]
 else
@@ -181,4 +181,3 @@ endif
 for f in split(glob('~/.vim/vim_*'), '\n')
   execute 'source' f
 endfor
-
