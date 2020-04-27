@@ -25,9 +25,11 @@ Plug 'ingydotnet/yaml-vim'
 Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'elzr/vim-json'
-
+" Themes
+Plug 'apriendeau/vim', { 'as': 'dracula' }
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
+" typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
 
@@ -35,12 +37,16 @@ Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+Plug 'roxma/nvim-yarp'
 if has("nvim")
   Plug 'ncm2/ncm2'
   " ncm2 requires nvim-yarp
-  Plug 'roxma/nvim-yarp'
   Plug 'ncm2/ncm2-go'
   Plug 'ncm2/ncm2-ultisnips'
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  let g:deoplete#enable_at_startup = 1
 endif
 
 " Required:
@@ -68,7 +74,8 @@ let g:airline_theme='colorline'
 let g:airline_powerline_fonts = 1
 set colorcolumn=120
 syntax on
-color pencil
+color dracula
+let g:dracula_colorterm = 1
 set number
 set relativenumber
 set splitright
