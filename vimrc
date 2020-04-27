@@ -26,7 +26,7 @@ Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'elzr/vim-json'
 " Themes
-Plug 'apriendeau/vim', { 'as': 'dracula' }
+Plug 'apriendeau/dracula-vim', { 'as': 'dracula' }
 Plug 'apriendeau/pencil'
 Plug 'apriendeau/vim-colorline'
 " typescript
