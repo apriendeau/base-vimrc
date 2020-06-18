@@ -16,7 +16,7 @@ endif
 
 Plug 'scrooloose/nerdtree'
 
-"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vim-scripts/nginx.vim'
 Plug 'tpope/vim-markdown'
@@ -41,8 +41,8 @@ Plug 'roxma/nvim-yarp'
 if has("nvim")
   Plug 'ncm2/ncm2'
   " ncm2 requires nvim-yarp
+  " Plug 'ncm2/ncm2-ultisnips'
   Plug 'ncm2/ncm2-go'
-  Plug 'ncm2/ncm2-ultisnips'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/vim-hug-neovim-rpc'

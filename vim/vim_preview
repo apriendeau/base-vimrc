@@ -3,7 +3,7 @@
 """""""""
 set completeopt-=preview
 
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/plugged/yaml-vim/syntax/yaml.vim
 
 au FileType map set tabstop=2 | set expandtab
 
